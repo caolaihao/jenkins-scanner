@@ -1,0 +1,50 @@
+{
+  "_class": "hudson.model.Hudson",
+  "assignedLabels": [
+    {}
+  ],
+  "mode": "NORMAL",
+  "nodeDescription": "the master Jenkins node",
+  "nodeName": "",
+  "numExecutors": 2,
+  "description": null,
+  "jobs": [
+    {
+      "_class": "org.jenkinsci.plugins.workflow.job.WorkflowJob",
+      "name": "pipeline-demo",
+      "url": "http://jason.mac/jenkins/job/pipeline-demo/",
+      "color": "blue"
+    },
+    {
+      "_class": "hudson.model.FreeStyleProject",
+      "name": "sample-freestyle",
+      "url": "http://jason.mac/jenkins/job/sample-freestyle/",
+      "color": "disabled"
+    }
+  ],
+  "overallLoad": {},
+  "primaryView": {
+    "_class": "hudson.model.AllView",
+    "name": "all",
+    "url": "http://jason.mac/jenkins/"
+  },
+  "quietingDown": false,
+  "slaveAgentPort": 50000,
+  "unlabeledLoad": {
+    "_class": "jenkins.model.UnlabeledLoadStatistics"
+  },
+  "useCrumbs": true,
+  "useSecurity": true,
+  "views": [
+    {
+      "_class": "com.smartcodeltd.jenkinsci.plugins.buildmonitor.BuildMonitorView",
+      "name": "Build",
+      "url": "http://jason.mac/jenkins/view/Build/"
+    },
+    {
+      "_class": "hudson.model.AllView",
+      "name": "all",
+      "url": "http://jason.mac/jenkins/"
+    }
+  ]
+}

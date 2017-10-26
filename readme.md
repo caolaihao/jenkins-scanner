@@ -19,3 +19,4 @@ Tasks:
     5. get build total count by date
     6. get build success count by date
     7. save build count(success/total)  by date
+    8. if scan failed, then should exit with non-zero code
