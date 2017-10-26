@@ -1,6 +1,7 @@
 package com.oocl.jenkins;
 
 import com.github.tomakehurst.wiremock.junit.WireMockRule;
+import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
 
@@ -20,17 +21,33 @@ public class JenkinsScannerTest {
 
     @Rule
     public WireMockRule wireMockRule = new WireMockRule(JENKINS_PORT);
+    private JenkinsScanner scanner;
 
-    @Test
-    public void should_get_all_job_names() throws Exception {
+    @Before
+    public void setUp() throws Exception {
         stubFor(get(urlEqualTo("/api/json"))
                 .willReturn(aResponse()
                         .withStatus(200)
                         .withHeader("Content-Type", "application/json")
                         .withBodyFile(JOBS_JSON_FILE)));
 
-        JenkinsScanner scanner = new JenkinsScanner(JENKINS_URL, "", "");
+        stubFor(get(urlEqualTo("/job/" + JOB_NAME + "/api/json"))
+                .willReturn(aResponse()
+                        .withStatus(200)
+                        .withHeader("Content-Type", "application/json")
+                        .withBodyFile(JOB_JSON)));
 
+        stubFor(get(urlEqualTo("/job/" + JOB_NAME + "/api/json?tree=allBuilds[number[*],url[*],queueId[*]]"))
+                .willReturn(aResponse()
+                        .withStatus(200)
+                        .withHeader("Content-Type", "application/json")
+                        .withBodyFile(JOB_ALL_BUILDS_JSON)));
+
+        scanner = new JenkinsScanner(JENKINS_URL, "", "");
+    }
+
+    @Test
+    public void should_get_all_job_names() throws Exception {
         List<String> jobNames = scanner.getAllJobNames();
 
         assertThat(jobNames.size()).isGreaterThan(0);
@@ -45,23 +62,16 @@ public class JenkinsScannerTest {
 
     @Test
     public void should_get_all_build_list_of_a_job() throws Exception {
-        stubFor(get(urlEqualTo("/job/" + JOB_NAME + "/api/json"))
-                .willReturn(aResponse()
-                        .withStatus(200)
-                        .withHeader("Content-Type", "application/json")
-                        .withBodyFile(JOB_JSON)));
-
-        stubFor(get(urlEqualTo("/job/" + JOB_NAME + "/api/json?tree=allBuilds[number[*],url[*],queueId[*]]"))
-                .willReturn(aResponse()
-                        .withStatus(200)
-                        .withHeader("Content-Type", "application/json")
-                        .withBodyFile(JOB_ALL_BUILDS_JSON)));
-
-        JenkinsScanner scanner = new JenkinsScanner(JENKINS_URL, "", "");
-
         List<JenkinsBuild> builds = scanner.getBuildsByJob(JOB_NAME);
 
         assertThat(builds.size()).isGreaterThan(0);
     }
 
+    @Test
+    public void should_get_build_list_after_a_certain_build_number() throws Exception {
+        int fromNumber = 50;
+        List<JenkinsBuild> builds = scanner.getBuildsAfterNumber(JOB_NAME, fromNumber);
+
+        assertThat(builds.size()).isEqualTo(3);
+    }
 }

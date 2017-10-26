@@ -11,6 +11,7 @@ import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 public class JenkinsScanner {
 
@@ -64,5 +65,10 @@ public class JenkinsScanner {
         }
 
         return jenkinsServer;
+    }
+
+    public List<JenkinsBuild> getBuildsAfterNumber(String jobName, int fromNumber) {
+
+        return getBuildsByJob(jobName).stream().filter(build -> build.getNumber() > fromNumber).collect(Collectors.toList());
     }
 }

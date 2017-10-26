@@ -9,4 +9,12 @@ public class JenkinsBuild {
         this.jobName = jobName;
         this.number = number;
     }
+
+    public String getJobName() {
+        return jobName;
+    }
+
+    public int getNumber() {
+        return number;
+    }
 }
