@@ -14,9 +14,7 @@ Tasks:
 
     1. get job list
     2. get job build list by job
-    3. get job build list by job & date
-    4. get job build detail
-    5. get build total count by date
-    6. get build success count by date
-    7. save build count(success/total)  by date
-    8. if scan failed, then should exit with non-zero code
+    3. get new build list after a certain build number. 
+    4. get job build detail by build number
+    5. save build detail into DB  
+    6. if scan failed, then should exit with non-zero code

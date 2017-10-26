@@ -14,6 +14,9 @@ public class JenkinsScannerTest {
     public static final int JENKINS_PORT = 8080;
     public static final String JENKINS_URL = "http://localhost:" + JENKINS_PORT + "/";
     public static final String ERROR_JENKINS_URL = "http://localhost:12399/";
+    public static final String JOB_ALL_BUILDS_JSON = "job-allbuilds.json";
+    public static final String JOB_JSON = "job.json";
+    public static final String JOB_NAME = "pipeline-demo";
 
     @Rule
     public WireMockRule wireMockRule = new WireMockRule(JENKINS_PORT);
@@ -39,4 +42,26 @@ public class JenkinsScannerTest {
 
         scanner.getAllJobNames();
     }
+
+    @Test
+    public void should_get_all_build_list_of_a_job() throws Exception {
+        stubFor(get(urlEqualTo("/job/" + JOB_NAME + "/api/json"))
+                .willReturn(aResponse()
+                        .withStatus(200)
+                        .withHeader("Content-Type", "application/json")
+                        .withBodyFile(JOB_JSON)));
+
+        stubFor(get(urlEqualTo("/job/" + JOB_NAME + "/api/json?tree=allBuilds[number[*],url[*],queueId[*]]"))
+                .willReturn(aResponse()
+                        .withStatus(200)
+                        .withHeader("Content-Type", "application/json")
+                        .withBodyFile(JOB_ALL_BUILDS_JSON)));
+
+        JenkinsScanner scanner = new JenkinsScanner(JENKINS_URL, "", "");
+
+        List<JenkinsBuild> builds = scanner.getBuildsByJob(JOB_NAME);
+
+        assertThat(builds.size()).isGreaterThan(0);
+    }
+
 }
