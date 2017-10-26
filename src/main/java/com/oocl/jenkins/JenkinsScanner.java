@@ -23,17 +23,16 @@ public class JenkinsScanner {
     }
 
     public List<String> getAllJobNames() {
-        List<String> results = new ArrayList<>();
         try {
             Map<String, Job> jobs = new JenkinsServer(new URI(jenkinsUrl), userName, userPassword).getJobs();
 
             return new ArrayList<>(jobs.keySet());
         } catch (URISyntaxException e) {
             e.printStackTrace();
+            throw new JenkinsScanException();
         } catch (IOException e) {
             e.printStackTrace();
+            throw new JenkinsScanException();
         }
-
-        return results;
     }
 }

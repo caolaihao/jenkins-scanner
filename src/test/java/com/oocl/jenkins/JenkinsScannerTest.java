@@ -13,6 +13,7 @@ public class JenkinsScannerTest {
     public static final String JOBS_JSON_FILE = "jobs.json";
     public static final int JENKINS_PORT = 8080;
     public static final String JENKINS_URL = "http://localhost:" + JENKINS_PORT + "/";
+    public static final String ERROR_JENKINS_URL = "http://localhost:12399/";
 
     @Rule
     public WireMockRule wireMockRule = new WireMockRule(JENKINS_PORT);
@@ -30,5 +31,12 @@ public class JenkinsScannerTest {
         List<String> jobNames = scanner.getAllJobNames();
 
         assertThat(jobNames.size()).isGreaterThan(0);
+    }
+
+    @Test(expected = JenkinsScanException.class)
+    public void should_fail_when_scan_jenkins_given_jenkins_not_running() throws Exception {
+        JenkinsScanner scanner = new JenkinsScanner(ERROR_JENKINS_URL, "", "");
+
+        scanner.getAllJobNames();
     }
 }
