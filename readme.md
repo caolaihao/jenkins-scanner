@@ -18,3 +18,11 @@ Tasks:
     4. get job build detail by build number
     5. save build detail into DB  
     6. if scan failed, then should exit with non-zero code
+    7. get last build number from DB by job name
+    8. integration: 
+        given: job name
+        when: update build info
+        then: 
+            * get last build nunmber
+            * get new build list after the number
+            * save every build detail into DB
