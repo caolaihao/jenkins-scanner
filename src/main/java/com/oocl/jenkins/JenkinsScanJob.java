@@ -17,6 +17,12 @@ public class JenkinsScanJob {
         this.repository = repository;
     }
 
+    public void run(List<String> jobs) {
+        for (String job : jobs) {
+            run(job);
+        }
+    }
+
     public void run(String jobName) {
         log.info("Scanning Jenkins builds of {}", jobName);
 
