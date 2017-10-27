@@ -18,6 +18,10 @@ public class JenkinsScannerTest {
     public static final String JOB_ALL_BUILDS_JSON = "job-allbuilds.json";
     public static final String JOB_JSON = "job.json";
     public static final String JOB_NAME = "pipeline-demo";
+    public static final String BUILD_DETAIL_JSON = "build-detail.json";
+    public static final String FAILED_BUILD_DETAIL_JSON = "failed-build-detail.json";
+    public static final int SUCCESS_BUILD_NUMBER = 50;
+    public static final int FAILED_BUILD_NUMBER = 51;
 
     @Rule
     public WireMockRule wireMockRule = new WireMockRule(JENKINS_PORT);
@@ -42,6 +46,18 @@ public class JenkinsScannerTest {
                         .withStatus(200)
                         .withHeader("Content-Type", "application/json")
                         .withBodyFile(JOB_ALL_BUILDS_JSON)));
+
+        stubFor(get(urlEqualTo("/job/" + JOB_NAME + "/" + SUCCESS_BUILD_NUMBER + "/api/json"))
+                .willReturn(aResponse()
+                        .withStatus(200)
+                        .withHeader("Content-Type", "application/json")
+                        .withBodyFile(BUILD_DETAIL_JSON)));
+
+        stubFor(get(urlEqualTo("/job/" + JOB_NAME + "/" + FAILED_BUILD_NUMBER + "/api/json"))
+                .willReturn(aResponse()
+                        .withStatus(200)
+                        .withHeader("Content-Type", "application/json")
+                        .withBodyFile(FAILED_BUILD_DETAIL_JSON)));
 
         scanner = new JenkinsScanner(JENKINS_URL, "", "");
     }
@@ -74,4 +90,19 @@ public class JenkinsScannerTest {
 
         assertThat(builds.size()).isEqualTo(3);
     }
+
+    @Test
+    public void should_get_build_detail_when_given_a_success_build_number() throws Exception {
+        JenkinsBuildInfo buildInfo = scanner.getBuildInfo(JOB_NAME, SUCCESS_BUILD_NUMBER);
+
+        assertThat(buildInfo.getStatus()).isEqualTo(JenkinsBuildStatus.SUCCESS);
+    }
+
+    @Test
+    public void should_get_build_detail_when_given_a_failed_build_number() throws Exception {
+        JenkinsBuildInfo buildInfo = scanner.getBuildInfo(JOB_NAME, FAILED_BUILD_NUMBER);
+
+        assertThat(buildInfo.getStatus()).isEqualTo(JenkinsBuildStatus.FAILED);
+    }
+
 }

@@ -1,0 +1,180 @@
+{
+  "_class": "org.jenkinsci.plugins.workflow.job.WorkflowRun",
+  "actions": [
+    {
+      "_class": "hudson.model.CauseAction",
+      "causes": [
+        {
+          "_class": "hudson.model.Cause$UserIdCause",
+          "shortDescription": "Started by user meixuesong",
+          "userId": "mxs",
+          "userName": "meixuesong"
+        }
+      ]
+    },
+    {},
+    {
+      "_class": "hudson.plugins.git.util.BuildData",
+      "buildsByBranchName": {
+        "origin/branch1": {
+          "_class": "hudson.plugins.git.util.Build",
+          "buildNumber": 35,
+          "buildResult": null,
+          "marked": {
+            "SHA1": "043e9ddd4a63e4cff79ce7d28da9d0fc2f38c5cf",
+            "branch": [
+              {
+                "SHA1": "043e9ddd4a63e4cff79ce7d28da9d0fc2f38c5cf",
+                "name": "origin/master"
+              },
+              {
+                "SHA1": "043e9ddd4a63e4cff79ce7d28da9d0fc2f38c5cf",
+                "name": "origin/branch1"
+              }
+            ]
+          },
+          "revision": {
+            "SHA1": "043e9ddd4a63e4cff79ce7d28da9d0fc2f38c5cf",
+            "branch": [
+              {
+                "SHA1": "043e9ddd4a63e4cff79ce7d28da9d0fc2f38c5cf",
+                "name": "origin/master"
+              },
+              {
+                "SHA1": "043e9ddd4a63e4cff79ce7d28da9d0fc2f38c5cf",
+                "name": "origin/branch1"
+              }
+            ]
+          }
+        },
+        "origin/master": {
+          "_class": "hudson.plugins.git.util.Build",
+          "buildNumber": 53,
+          "buildResult": null,
+          "marked": {
+            "SHA1": "4567fbb5da07db13b8c196e5490ac3620857cc70",
+            "branch": [
+              {
+                "SHA1": "4567fbb5da07db13b8c196e5490ac3620857cc70",
+                "name": "origin/master"
+              }
+            ]
+          },
+          "revision": {
+            "SHA1": "4567fbb5da07db13b8c196e5490ac3620857cc70",
+            "branch": [
+              {
+                "SHA1": "4567fbb5da07db13b8c196e5490ac3620857cc70",
+                "name": "origin/master"
+              }
+            ]
+          }
+        },
+        "refs/remotes/origin/master": {
+          "_class": "hudson.plugins.git.util.Build",
+          "buildNumber": 16,
+          "buildResult": null,
+          "marked": {
+            "SHA1": "927377572ee3c0388311dc454c30930547493020",
+            "branch": [
+              {
+                "SHA1": "927377572ee3c0388311dc454c30930547493020",
+                "name": "refs/remotes/origin/master"
+              }
+            ]
+          },
+          "revision": {
+            "SHA1": "927377572ee3c0388311dc454c30930547493020",
+            "branch": [
+              {
+                "SHA1": "927377572ee3c0388311dc454c30930547493020",
+                "name": "refs/remotes/origin/master"
+              }
+            ]
+          }
+        }
+      },
+      "lastBuiltRevision": {
+        "SHA1": "4567fbb5da07db13b8c196e5490ac3620857cc70",
+        "branch": [
+          {
+            "SHA1": "4567fbb5da07db13b8c196e5490ac3620857cc70",
+            "name": "origin/master"
+          }
+        ]
+      },
+      "remoteUrls": [
+        "http://gitlab/gitlab/meixuesong/rule-engine.git"
+      ],
+      "scmName": ""
+    },
+    {
+      "_class": "hudson.plugins.git.GitTagAction"
+    },
+    {},
+    {},
+    {
+      "_class": "org.jenkinsci.plugins.workflow.cps.EnvActionImpl"
+    },
+    {
+      "_class": "hudson.plugins.checkstyle.CheckStyleResultAction"
+    },
+    {},
+    {
+      "_class": "hudson.plugins.sonar.action.SonarAnalysisAction",
+      "ceTaskId": "AV6y3PXK62BHsmzx3k6s",
+      "installationName": "sonarqube-server",
+      "new": true,
+      "skipped": false,
+      "sonarqubeDashboardUrl": "http://sonarqube:9000/sonarqube/dashboard/index/com.oocl:jenkins-demo"
+    },
+    {
+      "_class": "hudson.tasks.junit.TestResultAction",
+      "failCount": 0,
+      "skipCount": 0,
+      "totalCount": 2,
+      "urlName": "testReport"
+    },
+    {},
+    {},
+    {
+      "_class": "hudson.plugins.sonar.action.SonarBuildBadgeAction",
+      "url": "http://sonarqube:9000/sonarqube/dashboard/index/com.oocl:jenkins-demo"
+    },
+    {},
+    {},
+    {},
+    {
+      "_class": "org.jenkinsci.plugins.workflow.job.views.FlowGraphAction"
+    },
+    {},
+    {}
+  ],
+  "artifacts": [
+    {
+      "displayPath": "jenkins-demo-0.0.1-SNAPSHOT.jar",
+      "fileName": "jenkins-demo-0.0.1-SNAPSHOT.jar",
+      "relativePath": "target/jenkins-demo-0.0.1-SNAPSHOT.jar"
+    }
+  ],
+  "building": false,
+  "description": null,
+  "displayName": "#53",
+  "duration": 52380,
+  "estimatedDuration": 54220,
+  "executor": null,
+  "fullDisplayName": "pipeline-demo #53",
+  "id": "53",
+  "keepLog": false,
+  "number": 53,
+  "queueId": 197,
+  "result": "SUCCESS",
+  "timestamp": 1506239332999,
+  "url": "http://localhost:8080/job/pipeline-demo/53/",
+  "changeSets": [],
+  "nextBuild": null,
+  "previousBuild": {
+    "number": 52,
+    "url": "http://localhost:8080/job/pipeline-demo/52/"
+  }
+}

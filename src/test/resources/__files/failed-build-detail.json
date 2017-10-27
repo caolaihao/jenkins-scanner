@@ -1,0 +1,150 @@
+{
+  "_class": "org.jenkinsci.plugins.workflow.job.WorkflowRun",
+  "actions": [
+    {
+      "_class": "hudson.model.CauseAction",
+      "causes": [
+        {
+          "_class": "hudson.model.Cause$UserIdCause",
+          "shortDescription": "Started by user meixuesong",
+          "userId": "mxs",
+          "userName": "meixuesong"
+        }
+      ]
+    },
+    {},
+    {
+      "_class": "hudson.plugins.git.util.BuildData",
+      "buildsByBranchName": {
+        "origin/branch1": {
+          "_class": "hudson.plugins.git.util.Build",
+          "buildNumber": 35,
+          "buildResult": null,
+          "marked": {
+            "SHA1": "043e9ddd4a63e4cff79ce7d28da9d0fc2f38c5cf",
+            "branch": [
+              {
+                "SHA1": "043e9ddd4a63e4cff79ce7d28da9d0fc2f38c5cf",
+                "name": "origin/master"
+              },
+              {
+                "SHA1": "043e9ddd4a63e4cff79ce7d28da9d0fc2f38c5cf",
+                "name": "origin/branch1"
+              }
+            ]
+          },
+          "revision": {
+            "SHA1": "043e9ddd4a63e4cff79ce7d28da9d0fc2f38c5cf",
+            "branch": [
+              {
+                "SHA1": "043e9ddd4a63e4cff79ce7d28da9d0fc2f38c5cf",
+                "name": "origin/master"
+              },
+              {
+                "SHA1": "043e9ddd4a63e4cff79ce7d28da9d0fc2f38c5cf",
+                "name": "origin/branch1"
+              }
+            ]
+          }
+        },
+        "origin/master": {
+          "_class": "hudson.plugins.git.util.Build",
+          "buildNumber": 51,
+          "buildResult": null,
+          "marked": {
+            "SHA1": "4567fbb5da07db13b8c196e5490ac3620857cc70",
+            "branch": [
+              {
+                "SHA1": "4567fbb5da07db13b8c196e5490ac3620857cc70",
+                "name": "origin/master"
+              }
+            ]
+          },
+          "revision": {
+            "SHA1": "4567fbb5da07db13b8c196e5490ac3620857cc70",
+            "branch": [
+              {
+                "SHA1": "4567fbb5da07db13b8c196e5490ac3620857cc70",
+                "name": "origin/master"
+              }
+            ]
+          }
+        },
+        "refs/remotes/origin/master": {
+          "_class": "hudson.plugins.git.util.Build",
+          "buildNumber": 16,
+          "buildResult": null,
+          "marked": {
+            "SHA1": "927377572ee3c0388311dc454c30930547493020",
+            "branch": [
+              {
+                "SHA1": "927377572ee3c0388311dc454c30930547493020",
+                "name": "refs/remotes/origin/master"
+              }
+            ]
+          },
+          "revision": {
+            "SHA1": "927377572ee3c0388311dc454c30930547493020",
+            "branch": [
+              {
+                "SHA1": "927377572ee3c0388311dc454c30930547493020",
+                "name": "refs/remotes/origin/master"
+              }
+            ]
+          }
+        }
+      },
+      "lastBuiltRevision": {
+        "SHA1": "4567fbb5da07db13b8c196e5490ac3620857cc70",
+        "branch": [
+          {
+            "SHA1": "4567fbb5da07db13b8c196e5490ac3620857cc70",
+            "name": "origin/master"
+          }
+        ]
+      },
+      "remoteUrls": [
+        "http://gitlab/gitlab/meixuesong/rule-engine.git"
+      ],
+      "scmName": ""
+    },
+    {
+      "_class": "hudson.plugins.git.GitTagAction"
+    },
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {
+      "_class": "org.jenkinsci.plugins.workflow.job.views.FlowGraphAction"
+    },
+    {},
+    {}
+  ],
+  "artifacts": [],
+  "building": false,
+  "description": null,
+  "displayName": "#51",
+  "duration": 59908,
+  "estimatedDuration": 54220,
+  "executor": null,
+  "fullDisplayName": "pipeline-demo #51",
+  "id": "51",
+  "keepLog": false,
+  "number": 51,
+  "queueId": 193,
+  "result": "FAILURE",
+  "timestamp": 1506224512776,
+  "url": "http://localhost:8080/job/pipeline-demo/51/",
+  "changeSets": [],
+  "nextBuild": {
+    "number": 52,
+    "url": "http://localhost:8080/job/pipeline-demo/52/"
+  },
+  "previousBuild": {
+    "number": 50,
+    "url": "http://localhost:8080/job/pipeline-demo/50/"
+  }
+}

@@ -2,6 +2,7 @@ package com.oocl.jenkins;
 
 import com.offbytwo.jenkins.JenkinsServer;
 import com.offbytwo.jenkins.model.Build;
+import com.offbytwo.jenkins.model.BuildWithDetails;
 import com.offbytwo.jenkins.model.Job;
 import com.offbytwo.jenkins.model.JobWithDetails;
 
@@ -70,5 +71,23 @@ public class JenkinsScanner {
     public List<JenkinsBuild> getBuildsAfterNumber(String jobName, int fromNumber) {
 
         return getBuildsByJob(jobName).stream().filter(build -> build.getNumber() > fromNumber).collect(Collectors.toList());
+    }
+
+    public JenkinsBuildInfo getBuildInfo(String jobName, int buildNumber) {
+        try {
+            JobWithDetails job = getJenkinsServer().getJob(jobName);
+            Build build = job.getBuildByNumber(buildNumber);
+            BuildWithDetails details = build.details();
+
+            String triggerDescription = "";
+            if (details.getCauses().size() > 0) {
+                triggerDescription = details.getCauses().get(0).getShortDescription();
+            }
+
+            return new JenkinsBuildInfo(jobName, buildNumber, details.getTimestamp(), details.getResult(), triggerDescription);
+        } catch (IOException e) {
+            e.printStackTrace();
+            throw new JenkinsScanException();
+        }
     }
 }

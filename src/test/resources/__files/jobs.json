@@ -12,13 +12,13 @@
     {
       "_class": "org.jenkinsci.plugins.workflow.job.WorkflowJob",
       "name": "pipeline-demo",
-      "url": "http://jason.mac/jenkins/job/pipeline-demo/",
+      "url": "http://localhost:8080/job/pipeline-demo/",
       "color": "blue"
     },
     {
       "_class": "hudson.model.FreeStyleProject",
       "name": "sample-freestyle",
-      "url": "http://jason.mac/jenkins/job/sample-freestyle/",
+      "url": "http://localhost:8080/job/sample-freestyle/",
       "color": "disabled"
     }
   ],
@@ -26,7 +26,7 @@
   "primaryView": {
     "_class": "hudson.model.AllView",
     "name": "all",
-    "url": "http://jason.mac/jenkins/"
+    "url": "http://localhost:8080/"
   },
   "quietingDown": false,
   "slaveAgentPort": 50000,
@@ -39,12 +39,12 @@
     {
       "_class": "com.smartcodeltd.jenkinsci.plugins.buildmonitor.BuildMonitorView",
       "name": "Build",
-      "url": "http://jason.mac/jenkins/view/Build/"
+      "url": "http://localhost:8080/view/Build/"
     },
     {
       "_class": "hudson.model.AllView",
       "name": "all",
-      "url": "http://jason.mac/jenkins/"
+      "url": "http://localhost:8080/"
     }
   ]
 }
