@@ -2,8 +2,19 @@ package com.oocl.jenkins;
 
 import com.offbytwo.jenkins.model.BuildResult;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "JENKINS_BUILD")
 public class JenkinsBuildInfo {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
     private final String jobName;
     private final int buildNumber;
     private final long timestamp;
@@ -36,5 +47,9 @@ public class JenkinsBuildInfo {
 
     public String getTriggerDescription() {
         return triggerDescription;
+    }
+
+    public Long getId() {
+        return id;
     }
 }

@@ -104,5 +104,4 @@ public class JenkinsScannerTest {
 
         assertThat(buildInfo.getStatus()).isEqualTo(JenkinsBuildStatus.FAILED);
     }
-
 }
