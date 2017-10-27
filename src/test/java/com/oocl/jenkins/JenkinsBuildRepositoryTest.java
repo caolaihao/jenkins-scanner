@@ -17,7 +17,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 @DataJpaTest
 @Transactional
 @ActiveProfiles("test")
-public class JenkinsRepositoryTest {
+public class JenkinsBuildRepositoryTest {
     @Autowired
     private JenkinsBuildRepository repository;
 
