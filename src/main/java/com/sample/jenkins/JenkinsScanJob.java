@@ -44,15 +44,13 @@ public class JenkinsScanJob {
     }
 
     private List<JenkinsBuild> getLatestJenkinsBuilds(String jobName, int lastBuildNumber) {
-        List<JenkinsBuild> builds = scanner.getBuildsAfterNumber(jobName, lastBuildNumber);
 
-        return builds;
+        return scanner.getBuildsAfterNumber(jobName, lastBuildNumber);
     }
 
     private int getLastBuildNumber(String jobName) {
         Optional<JenkinsBuildInfo> lastBuild = repository.findTopByJobNameOrderByBuildNumberDesc(jobName);
-        int lastBuildNumber = lastBuild.isPresent() ? lastBuild.get().getBuildNumber() : 0;
 
-        return lastBuildNumber;
+        return lastBuild.isPresent() ? lastBuild.get().getBuildNumber() : 0;
     }
 }
