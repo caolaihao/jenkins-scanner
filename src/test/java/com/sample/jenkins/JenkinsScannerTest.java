@@ -1,4 +1,4 @@
-package com.oocl.jenkins;
+package com.sample.jenkins;
 
 import com.github.tomakehurst.wiremock.junit.WireMockRule;
 import org.junit.Before;

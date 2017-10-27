@@ -1,14 +1,9 @@
-package com.oocl.jenkins;
+package com.sample.jenkins;
 
 import com.offbytwo.jenkins.model.BuildResult;
 import org.junit.Test;
-import org.junit.runner.RunWith;
 import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.ActiveProfiles;
-import org.springframework.test.context.junit4.SpringRunner;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -20,11 +15,7 @@ import static org.mockito.Matchers.anyInt;
 import static org.mockito.Matchers.anyString;
 import static org.mockito.Mockito.*;
 
-@RunWith(SpringRunner.class)
-@SpringBootTest
-@Transactional
-@ActiveProfiles("test")
-public class JenkinsScanJobTest {
+public class JenkinsScanJobTest extends IntegrationTest {
 
     @Autowired
     private JenkinsBuildRepository repository;

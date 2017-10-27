@@ -1,7 +1,8 @@
-package com.oocl.jenkins;
+package com.sample.jenkins;
 
 import com.offbytwo.jenkins.model.BuildResult;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -15,11 +16,15 @@ public class JenkinsBuildInfo {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private final String jobName;
-    private final int buildNumber;
-    private final long timestamp;
-    private final String triggerDescription;
+    private String jobName;
+    private int buildNumber;
+    @Column(name = "BUILD_TIME")
+    private long timestamp;
+    private String triggerDescription;
     private JenkinsBuildStatus status;
+
+    public JenkinsBuildInfo() {
+    }
 
     public JenkinsBuildInfo(String jobName, int buildNumber, long timestamp, BuildResult buildResult, String triggerDescription) {
         this.jobName = jobName;

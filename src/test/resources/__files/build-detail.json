@@ -126,7 +126,7 @@
       "installationName": "sonarqube-server",
       "new": true,
       "skipped": false,
-      "sonarqubeDashboardUrl": "http://sonarqube:9000/sonarqube/dashboard/index/com.oocl:jenkins-demo"
+      "sonarqubeDashboardUrl": "http://sonarqube:9000/sonarqube/dashboard/index/com.sample:jenkins-demo"
     },
     {
       "_class": "hudson.tasks.junit.TestResultAction",
@@ -139,7 +139,7 @@
     {},
     {
       "_class": "hudson.plugins.sonar.action.SonarBuildBadgeAction",
-      "url": "http://sonarqube:9000/sonarqube/dashboard/index/com.oocl:jenkins-demo"
+      "url": "http://sonarqube:9000/sonarqube/dashboard/index/com.sample:jenkins-demo"
     },
     {},
     {},

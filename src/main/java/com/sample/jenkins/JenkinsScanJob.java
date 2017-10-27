@@ -1,4 +1,4 @@
-package com.oocl.jenkins;
+package com.sample.jenkins;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

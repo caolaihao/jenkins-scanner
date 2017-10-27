@@ -1,4 +1,4 @@
-package com.oocl.jenkins;
+package com.sample.jenkins;
 
 public class JenkinsScanException extends RuntimeException {
 }

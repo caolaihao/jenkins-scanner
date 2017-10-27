@@ -1,4 +1,4 @@
-package com.oocl.jenkins;
+package com.sample.jenkins;
 
 import com.offbytwo.jenkins.JenkinsServer;
 import com.offbytwo.jenkins.model.Build;
@@ -50,6 +50,7 @@ public class JenkinsScanner {
             }
         } catch (IOException e) {
             e.printStackTrace();
+            throw new JenkinsScanException();
         }
 
         return results;
