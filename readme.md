@@ -1,4 +1,4 @@
-# Introduction
+# INTRODUCTION
 
 To show jenkins build success rate in Grafana, this project will gather jenkins build data and insert into a database.
 
@@ -26,7 +26,7 @@ Using Jenkins & MySQL settings stored in application.properties:
 java -jar build/libs/jenkins-0.0.1-SNAPSHOT.jar
 ```
 
-Using customized Jenkins & MySQL settings through arguments:
+or using customized Jenkins & MySQL settings through arguments:
 
 ```
 java -jar build/libs/jenkins-0.0.1-SNAPSHOT.jar \
@@ -41,7 +41,7 @@ java -jar build/libs/jenkins-0.0.1-SNAPSHOT.jar \
 
 ## TASKING
 
-Here are tasks:
+Tasking is a practice of TDD, Here are tasks:
 
     1. get job list
     2. get job build list by job
